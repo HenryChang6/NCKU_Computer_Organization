@@ -59,13 +59,15 @@ int main()
                     "j ForF\n\t"                // jump back to ForF
 
                 "ForFEND:\n\t"              // ForF end
+                "li t3, 2\n\t"              // reset f
                 "addi t2, t2, -1\n\t"       // update j's value
                 "j ForJ\n\t"                // jump back to ForJ
 
             "ForJEND:\n\t"
+            "li t2, 1\n\t"                // reset j
             "addi t1, t1, -1\n\t"         // update i's value
-            "j ForI\n\t"                 // jump back to ForI
-            
+            "j ForI\n\t"                  // jump back to ForI
+
         "ForIEND:\n\t"               // ForI End
         :[p_x] "+r" (p_x), [p_h] "+r" (p_h), [p_y] "+r" (p_y)
         :[x] "r" (x), [h] "r" (h), [y] "r" (y)
