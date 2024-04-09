@@ -18,12 +18,12 @@ int main () {
     for (int i = 0; i < arr_size; i++){
         asm volatile(
             "div %[A], %[B], %[C]\n\t"
-            :[A] "=r" (p_c[i]), [B] "r" (p_a[i]), [C] "r" (p_b[i])
-            :
+            :[A] "=r" (p_c[i]) 
+            :[B] "r" (p_a[i]), [C] "r" (p_b[i])
         );
     }
     p_c = &c[0];
     for(i = 0; i < arr_size; i++) printf("%d ", *p_c++);
-    printf("\n")
+    printf("\n");
     return 0;
 }

@@ -8,8 +8,8 @@ int main () {
     //a = a / b;
     asm volatile(
         "div %[A], %[A], %[B]\n\t"
-        : [A] "+r" (a), [B] "r" (b)
-        :
+        : [A] "+r" (a)
+        : [B] "r" (b)
     );
     printf("%d\n", a);
     return 0;
